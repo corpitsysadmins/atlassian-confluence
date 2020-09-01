@@ -17,7 +17,7 @@ Summary:	Wiki system from Atlassian
 License:	Atlassian End User Agreement
 URL:		https://www.atlassian.com/software/confluence
 Source0:	https://www.atlassian.com/software/confluence/downloads/binary/%{_generic_name}-%{version}.tar.gz
-Source1:	https://www.example.com/%{_generic_name}/sysvinit-%{version}
+Source1:	https://raw.githubusercontent.com/corpitsysadmins/%{_generic_name}/master/el7/additional/sysvinit-%{version}
 Patch0:		confluence-user.patch
 Patch1:		confluence-home.patch
 
