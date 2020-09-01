@@ -1,0 +1,31 @@
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides:      confluence
+# Required-Start:    $remote_fs $syslog $time $named
+# Required-Stop:    $remote_fs $syslog $time $named
+# Default-Start:     2 3 4 5
+# Default-Stop:     0 1 6
+# Short-Description: Atlassian Confluence
+# Description: Atlassian Confluence Server
+### END INIT INFO
+
+# Confluence Linux service controller script
+cd "/opt/atlassian-confluence/bin"
+
+case "$1" in
+    start)
+        ./start-confluence.sh
+        ;;
+    stop)
+        ./stop-confluence.sh
+        ;;
+    restart)
+        ./stop-confluence.sh
+        ./start-confluence.sh
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
