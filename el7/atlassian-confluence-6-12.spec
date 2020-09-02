@@ -56,7 +56,7 @@ cp %{SOURCE1} %{buildroot}/etc/init.d/confluence
 mkdir --parents %{buildroot}/%{_confluence_home}
  
 %files
-/etc/init.d/confluence
+%attr(755, root, root) /etc/init.d/confluence
 %attr(-, %{_confluence_user}, %{_confluence_user}) %{_confluence_directory}/bin
 %attr(-, %{_confluence_user}, %{_confluence_user}) %config %{_confluence_directory}/conf
 %attr(-, %{_confluence_user}, %{_confluence_user}) %{_confluence_directory}/confluence
