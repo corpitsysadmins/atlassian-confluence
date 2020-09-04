@@ -36,6 +36,9 @@ Create, collaborate, and organize all your work in one place. Confluence is a te
 %pre
 /usr/bin/getent passwd %{_confluence_user} || /usr/sbin/useradd --home %{_confluence_home} --shell /bin/bash --system --user-group %{_confluence_user}
 
+%post
+service confluence start
+
 %preun
 service confluence stop
 sleep 30
