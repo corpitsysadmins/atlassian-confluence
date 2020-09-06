@@ -25,6 +25,9 @@ Requires:	/usr/bin/getent
 Requires:	/usr/sbin/useradd
 Requires:	/sbin/nologin
 Requires:	/usr/sbin/userdel
+Requires:	/sbin/chkconfig
+Requires:	/sbin/service
+Requires:	/bin/sleep
 Requires:	jre1.8
 Conflicts:	jre1.8 = 1.8.0_25, jre1.8 = 1.8.0_31, jre1.8 = 1.8.0_45
 Provides:	%{_generic_name}
@@ -37,11 +40,12 @@ Create, collaborate, and organize all your work in one place. Confluence is a te
 /usr/bin/getent passwd %{_confluence_user} || /usr/sbin/useradd --home %{_confluence_home} --shell /bin/bash --system --user-group %{_confluence_user}
 
 %post
-service confluence start
+/sbin/chkconfig --add confluence
+/sbin/service confluence start
 
 %preun
-service confluence stop
-sleep 30
+/sbin/service confluence stop
+/bin/sleep 30
 
 %postun
 /usr/sbin/userdel %{_confluence_user}
