@@ -41,7 +41,6 @@ Create, collaborate, and organize all your work in one place. Confluence is a te
 
 %post
 /sbin/chkconfig --add confluence
-/sbin/service confluence start
 
 %preun
 /sbin/service confluence stop
