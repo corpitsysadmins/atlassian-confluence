@@ -1,0 +1,18 @@
+# Sourced from https://confluence.atlassian.com/confkb/run-confluence-as-a-systemd-service-on-linux-937177781.html
+[Unit]
+Description=Confluence
+Documentation=https://confluence.atlassian.com/conf74/confluence-server-documentation-1003128171.html
+After=network.target
+
+[Service]
+Type=forking
+User=confluence
+PIDFile=/opt/atlassian-confluence/work/catalina.pid
+ExecStart=/bin/bash /opt/atlassian-confluence/bin/start-confluence.sh
+ExecStop=/bin/bash /opt/atlassian-confluence/bin/stop-confluence.sh
+TimeoutSec=200
+LimitNOFILE=4096
+LimitNPROC=4096
+
+[Install]
+WantedBy=multi-user.target
