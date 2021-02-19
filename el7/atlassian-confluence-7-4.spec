@@ -11,16 +11,17 @@
 
 Name:		%{_generic_name}-7-4
 Version:	7.4.3
-Release:	2%{?dist}
+Release:	5%{?dist}
 Summary:	Wiki system from Atlassian
 
 License:	Atlassian End User Agreement
 URL:		https://www.atlassian.com/software/confluence
 Source0:	https://www.atlassian.com/software/confluence/downloads/binary/%{_generic_name}-%{version}.tar.gz
-Source1:	https://raw.githubusercontent.com/corpitsysadmins/%{_generic_name}/master/el7/additional/sysvinit-7.4.3
+Source1:	https://raw.githubusercontent.com/corpitsysadmins/%{_generic_name}/master/el7/additional/sysvinit-6.12.4
 Patch0:		confluence-user.patch
 Patch1:		confluence-home.patch
 
+BuildArch:	noarch
 Requires:	/usr/bin/getent
 Requires:	/usr/sbin/useradd
 Requires:	/sbin/nologin
@@ -28,8 +29,7 @@ Requires:	/usr/sbin/userdel
 Requires:	/sbin/chkconfig
 Requires:	/sbin/service
 Requires:	/bin/sleep
-Requires:	adoptopenjdk-11-hotspot, adoptopenjdk-8-hotspot, jre1.8
-Conflicts:	jre1.8 = 1.8.0_25, jre1.8 = 1.8.0_31, jre1.8 = 1.8.0_45
+Requires:	%{_generic_name}-java
 Provides:	%{_generic_name}
 Conflicts:	%{_generic_name}
 
@@ -82,6 +82,12 @@ mkdir --parents %{buildroot}/%{_confluence_home}
 %attr(750, %{_confluence_user}, %{_confluence_user}) %dir %{_confluence_home}
 
 %changelog
+* Mon Oct 5 2020 Irving Leonard <mm-irvingleonard@github.com> 7.4.3-5
+- Using noarch build
+* Mon Oct 5 2020 Irving Leonard <mm-irvingleonard@github.com> 7.4.3-4
+- Fixed the sysvinit script in Source1
+* Mon Oct 5 2020 Irving Leonard <mm-irvingleonard@github.com> 7.4.3-3
+- Using dummy/virtual packages for Java requirements (thanks rpm<4.13)
 * Mon Oct 5 2020 Irving Leonard <mm-irvingleonard@github.com> 7.4.3-2
 - Adding OpenJDK support
 * Fri Aug 28 2020 Irving Leonard <mm-irvingleonard@github.com> 7.4.3-1
