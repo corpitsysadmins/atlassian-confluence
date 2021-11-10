@@ -1,8 +1,21 @@
-# RHEL/CentOS 7 and compatibles
+# RHEL/Centos 7 and compatibles
 
-In order to build the package you need to copy all the files in this directory (including the tarballs) to a directory with enough free space in your build host (/tmp might not be big enough). Then
-```
-chmod +x build_rpms.sh
-./build_rpms.sh <your-version>
-```
-where <your-version> matches an existing SPEC file. The source RPM will end up in rpmbuild/SRPMS and the binary one in rpmbuild/RPMS
+## Building RPMs
+
+The instructions assume that the working directory is the one containing this file.
+
+In order to build the package you need to have a working [docker](https://www.docker.com/) environment and "prepare" the building container:
+
+`docker build -t atlassian-confluence-packager:el7 .`
+
+Then, to build the latest version:
+
+`docker run --rm --volume "$PWD"/releases:/root/rpmbuild/SRPMS --volume "$PWD"/releases:/root/rpmbuild/RPMS atlassian-confluence-packager:el7 atlassian-confluence-7-4.spec`
+
+The resulting RPMs (including source RPMs) should land in the `releases` directory. There might be some issues with permissions, so you might want to run:
+
+```sudo chown -R `whoami` releases/*```
+
+## Updating SPECs
+
+Since the last parameter to the "docker run" is the name of the SPEC file one might assume that is "passing" it to the container, which is not true. Instead, that parameter is the name used to identify the file that was copied over during the "docker build" phase. That's why you need to re-build the image every time you update the SPEC files, since running the existing image will only process the old version (or fail altogether, if it's a new SPEC file).
