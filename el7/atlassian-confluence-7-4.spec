@@ -7,14 +7,14 @@
 %define _confluence_home /var/confluence
 
 Name:		%{_generic_name}-7-4
-Version:	7.4.3
+Version:	7.4.13
 Release:	6%{?dist}
 Summary:	Wiki system from Atlassian
 
 License:	Atlassian End User Agreement
 URL:		https://www.atlassian.com/software/confluence
 Source0:	https://www.atlassian.com/software/confluence/downloads/binary/%{_generic_name}-%{version}.tar.gz
-Source1:	https://raw.githubusercontent.com/corpitsysadmins/%{_generic_name}/master/el7/additional/confluence.service-7.4
+Source1:	confluence.service-7.4
 Patch0:		confluence-user.patch
 Patch1:		confluence-home.patch
 
@@ -80,6 +80,8 @@ mkdir --parents %{buildroot}/%{_confluence_home}
 %attr(750, %{_confluence_user}, %{_confluence_user}) %dir %{_confluence_home}
 
 %changelog
+* Tue Nov 9 2021 Irving Leonard <mm-irvingleonard@github.com> 7.4.13-1
+- Updated to 7.4.13
 * Fri Feb 19 2021 Irving Leonard <mm-irvingleonard@github.com> 7.4.3-6
 - Moved to systemd unit using https://confluence.atlassian.com/confkb/run-confluence-as-a-systemd-service-on-linux-937177781.html
 * Mon Oct 5 2020 Irving Leonard <mm-irvingleonard@github.com> 7.4.3-5
