@@ -8,7 +8,7 @@
 
 Name:		%{_generic_name}-7-4
 Version:	7.4.13
-Release:	6%{?dist}
+Release:	1%{?dist}
 Summary:	Wiki system from Atlassian
 
 License:	Atlassian End User Agreement
