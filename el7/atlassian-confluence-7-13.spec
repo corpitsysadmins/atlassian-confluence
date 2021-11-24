@@ -8,7 +8,7 @@
 
 Name:		%{_generic_name}-7-13
 Version:	7.13.2
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Wiki system from Atlassian
 
 License:	Atlassian End User Agreement
@@ -29,6 +29,7 @@ Requires:	/bin/sleep
 Requires:	%{_generic_name}-java
 Provides:	%{_generic_name}
 Conflicts:	%{_generic_name}
+Obsoletes:	%{_generic_name}-7-4
 
 %description
 Create, collaborate, and organize all your work in one place. Confluence is a team workspace where knowledge and collaboration meet. Dynamic pages give your team a place to create, capture, and collaborate on any project or idea. Spaces help your team structure, organize, and share work, so every team member has visibility into institutional knowledge and access to the information they need to do their best work.
@@ -80,5 +81,7 @@ mkdir --parents %{buildroot}/%{_confluence_home}
 %attr(750, %{_confluence_user}, %{_confluence_user}) %dir %{_confluence_home}
 
 %changelog
+* Tue Nov 24 2021 Irving Leonard <mm-irvingleonard@github.com> 7.13.2-2
+- Using Obsoletes to trigger updates
 * Tue Nov 16 2021 Irving Leonard <mm-irvingleonard@github.com> 7.13.2-1
 - Initial RPM release
