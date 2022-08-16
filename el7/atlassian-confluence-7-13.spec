@@ -7,8 +7,8 @@
 %define _confluence_home /var/confluence
 
 Name:		%{_generic_name}-7-13
-Version:	7.13.2
-Release:	2%{?dist}
+Version:	7.13.8
+Release:	1%{?dist}
 Summary:	Wiki system from Atlassian
 
 License:	Atlassian End User Agreement
@@ -81,7 +81,10 @@ mkdir --parents %{buildroot}/%{_confluence_home}
 %attr(750, %{_confluence_user}, %{_confluence_user}) %dir %{_confluence_home}
 
 %changelog
-* Tue Nov 24 2021 Irving Leonard <mm-irvingleonard@github.com> 7.13.2-2
+* Mon Aug 15 2022 Alexander Zaballa <mm-alexander@github.com> 7.13.8-1
+- Update to version 7.13.8
+* Wed Nov 24 2021 Irving Leonard <mm-irvingleonard@github.com> 7.13.2-2
 - Using Obsoletes to trigger updates
 * Tue Nov 16 2021 Irving Leonard <mm-irvingleonard@github.com> 7.13.2-1
 - Initial RPM release
+

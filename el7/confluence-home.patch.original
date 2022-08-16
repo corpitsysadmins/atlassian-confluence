@@ -1,3 +1,4 @@
+diff -urN -x '\.DS_Store' upstream/confluence/WEB-INF/classes/confluence-init.properties patched/confluence/WEB-INF/classes/confluence-init.properties
 --- upstream/confluence/WEB-INF/classes/confluence-init.properties	2022-07-04 00:55:22.000000000 -0400
 +++ patched/confluence/WEB-INF/classes/confluence-init.properties	2022-08-15 15:41:05.000000000 -0400
 @@ -31,4 +31,5 @@
