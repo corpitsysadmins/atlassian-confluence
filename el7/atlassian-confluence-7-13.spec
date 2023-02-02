@@ -7,7 +7,7 @@
 %define _confluence_home /var/confluence
 
 Name:		%{_generic_name}-7-13
-Version:	7.13.11
+Version:	7.13.13
 Release:	1%{?dist}
 Summary:	Wiki system from Atlassian
 
@@ -81,6 +81,8 @@ mkdir --parents %{buildroot}/%{_confluence_home}
 %attr(750, %{_confluence_user}, %{_confluence_user}) %dir %{_confluence_home}
 
 %changelog
+* Thu Feb 2 2023 Alexander Zaballa <mm-alexander@github.com> 7.13.13-1
+- Update to version 7.13.13
 * Tue Nov 1 2022 Alexander Zaballa <mm-alexander@github.com> 7.13.11-1
 - Update to version 7.13.11
 * Mon Sep 7 2022 Alexander Zaballa <mm-alexander@github.com> 7.13.9-1
