@@ -28,5 +28,8 @@ The solution was to create a resource called `atlassian-confluence-java` that wi
 - Oracle JRE 1.8
 - AdoptOpenJDK 8
 - AdoptOpenJDK 11
+- Eclipse Temurin 8
+- Eclipse Temurin 11
+- Eclipse Temurin 17
 
 They conflict between each other, so you can only install one of them at the same time. The idea would be to actually uninstall the JDK that was pulled when you uninstall one of these but that's not implemented yet. Keep that in mind if you're "changing between JDKs", you might want to check the default java in your environment.
