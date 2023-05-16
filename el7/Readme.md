@@ -26,6 +26,7 @@ Java dependency is a little complex in RHEL7 because of the version of `rpm` inc
 
 The solution was to create a resource called `atlassian-confluence-java` that will be required by the `atlassian-confluence-X-Y` package. Such requirement can be provided by  any of the other specs included here. Each of those `atlassian-confluence-java-X` require a different JDK which would be supported by confluence:
 - Oracle JRE 1.8
+- Oracle JDK 11
 - AdoptOpenJDK 8
 - AdoptOpenJDK 11
 - Eclipse Temurin 8
